@@ -1,18 +1,18 @@
 // ьазовые модели
-interface ICatalogueModel {
+export interface ICatalogueModel {
     items: IProduct[];
     setItems(items: IProduct[]): void;
     getProduct(id: string): IProduct | null;
     has(id: string): boolean;
 }
 
-interface IProduct {
+export interface IProduct {
     id: string;
     title: string;
     price: number | null;
 }
 
-interface IBasketModel {
+export interface IBasketModel {
     items: Map<string, number>;
     add(id: string): void;
     remove(id: string): void;
@@ -21,27 +21,27 @@ interface IBasketModel {
 
 
 // оформление заказа
-interface ICheckoutField {
+export type ICheckoutField = {
     value: string | null;
-    setValue(value: string): void;
-}
+    setValue: (value: string) => void;
+};
 
-interface ICheckoutStep {
+export interface ICheckoutStep {
     isValid(): boolean;
     getErrorMessage(): string | null;
 }
 
-interface ICheckoutStepOne extends ICheckoutStep {
+export interface ICheckoutStepOne extends ICheckoutStep {
     paymentMethod: ICheckoutField;
     deliveryAddress: ICheckoutField;
 }
 
-interface ICheckoutStepTwo extends ICheckoutStep {
+export interface ICheckoutStepTwo extends ICheckoutStep {
     email: ICheckoutField;
     phone: ICheckoutField;
 }
 
-interface ICheckout {
+export interface ICheckoutModel {
     stepOne: ICheckoutStepOne;
     stepTwo: ICheckoutStepTwo;
     isCheckoutComplete(): boolean;
@@ -50,7 +50,7 @@ interface ICheckout {
 }
 
 // модальные окна
-interface IModal extends IView {
+export interface IModal extends IView {
     open(data?: object): void; 
     close(): void;
     setNextStepEnabled(isEnabled: boolean): void;
@@ -59,10 +59,10 @@ interface IModal extends IView {
 }
 
 // отображение
-interface IViewConstructor {
+export interface IViewConstructor {
     new (container: HTMLElement, events?: IEventEmitter): IView;
 }
 
-interface IView {
+export interface IView {
     render(data?: object): HTMLElement;
 }
