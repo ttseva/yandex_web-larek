@@ -54,8 +54,12 @@ yarn build
 
 
 ## Компоненты модели данных (бизнес-логика)
+### BasketModel
+
+
 ## Компоненты представления
 ## Типы данных
+```
 // лист ответов API
 export type ApiListResponse< Type> = {\
     total: number, // количество ответов: число элементов \
@@ -67,8 +71,10 @@ export type ApiPostMethods = 'POST' | 'PUT' | 'DELETE';
 
 type EventName = string | RegExp; // имя события
 type Subscriber = Function; // функция-обработчик события
+
 // объект события
 type EmitterEvent = { \
     eventName: string,\
     data: unknown\
 };
+```
