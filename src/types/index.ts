@@ -1,18 +1,22 @@
+// ьазовые модели
 interface ICatalogueModel {
     items: IProduct[];
     setItems(items: IProduct[]): void;
-    getProduct(id: string): IProduct;
+    getProduct(id: string): IProduct | null;
+    has(id: string): boolean;
 }
 
 interface IProduct {
     id: string;
     title: string;
+    price: number | null;
 }
 
 interface IBasketModel {
     items: Map<string, number>;
     add(id: string): void;
     remove(id: string): void;
+    clear(): void;
 }
 
 

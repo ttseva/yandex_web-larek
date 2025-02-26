@@ -74,7 +74,7 @@ type Subscriber = Function; // функция-обработчик событи�
 
 // объект события
 type EmitterEvent = { \
-    eventName: string,\
-    data: unknown\
+    eventName: string,
+    data: unknown;
 };
 ```
